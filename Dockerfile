@@ -1,6 +1,6 @@
 # Dockerfile.production
 FROM ruby:2.7
-MAINTAINER maintainer@example.com
+MAINTAINER hello@cloud66.com
 
 ENV NODE_ENV production
 ENV RAILS_ENV production
