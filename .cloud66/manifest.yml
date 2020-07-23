@@ -2,3 +2,4 @@ rails:
   configuration:
     ruby_version: "2.7.1"
     operating_system: "Ubuntu1604"
+    node_version: "8"
