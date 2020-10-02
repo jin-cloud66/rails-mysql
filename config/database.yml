@@ -48,8 +48,16 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: <%= ENV['MYSQL_DATABASE'] %>
-  username: <%= ENV['MYSQL_USERNAME'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
-  host: <%= ENV['MYSQL_ADDRESS'] || ENV['MYSQL_HOST'] %>
+  primary:
+    <<: *default
+    database: <%= ENV['MYSQL_DATABASE'] %>
+    username: <%= ENV['MYSQL_USERNAME'] %>
+    password: <%= ENV['MYSQL_PASSWORD'] %>
+    host: <%= ENV['MYSQL_ADDRESS'] || ENV['MYSQL_HOST'] %>
+  replica:
+    <<: *default
+    database: <%= ENV['MYSQL_REPLICA_DATABASE'] %>
+    username: <%= ENV['MYSQL_REPLICA_USERNAME'] %>
+    password: <%= ENV['MYSQL_REPLICA_PASSWORD'] %>
+    host: <%= ENV['MYSQL_REPLICA_ADDRESS'] || ENV['MYSQL_REPLICA_HOST'] %>
+    replica: true
