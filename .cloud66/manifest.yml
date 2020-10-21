@@ -4,11 +4,11 @@ rails:
     network:
       traffic_sources:
         groups:
-				- load_balancer
+	- "load_balancer"
 load_balancer:
   configuration:
     network:
       traffic_sources:
         ips:
-				- 123.123.123.123
+	- "123.123.123.123"
   
