@@ -1,3 +1,14 @@
 rails:
   configuration:
     ruby_version: "2.7.2"
+    network:
+      traffic_sources:
+        groups:
+				- load_balancer
+load_balancer:
+  configuration:
+    network:
+      traffic_sources:
+        ips:
+				- 123.123.123.123
+  
