@@ -10,5 +10,5 @@ load_balancer:
     network:
       traffic_sources:
         ips:
-        - "123.123.123.123"
+        - "77.96.182.168"
   
