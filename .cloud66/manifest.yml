@@ -5,7 +5,7 @@ rails:
       traffic_sources:
         groups:
         - "load_balancer"
-load_balancer:
+load_balancer__IGNORE:
   configuration:
     network:
       traffic_sources:
