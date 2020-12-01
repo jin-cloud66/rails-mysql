@@ -1,15 +1,13 @@
 namespace :test do
 	task :work => :environment do
 		loop do
-			puts "I'm working (currently running as \"`whoami`\")"
+			puts "I'm working (running as \"#{`whoami`.strip}\")"
 			sleep(5)
 		end
 	end
 
 	task :job => :environment do
-		loop do
-			puts "I'm doing this job (currently running as \"`whoami`\")"
-			sleep(5)
-		end
+		puts "I'm doing this job (running as \"#{`whoami`.strip}\")"
+		sleep(5)
 	end
 end
