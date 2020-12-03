@@ -6,10 +6,10 @@ def prepend_handler(signal, &handler)
 end
 
 prepend_handler("INT") do |old|
-	puts "Captured INT signal"
+	puts "[PID: #{Process.pid}] [PNAME: #{$0}] Captured INT signal, ignoring"
 end
 
 prepend_handler("TERM") do |old|
-	puts "Captured TERM signal"
+	puts "[PID: #{Process.pid}] [PNAME: #{$0}] Captured TERM signal, propagating"
 	old.call
 end
