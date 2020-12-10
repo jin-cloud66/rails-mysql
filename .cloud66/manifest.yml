@@ -1,4 +1,4 @@
 rails:
   configuration:
-    ruby_version: "2.6.5"
+    ruby_version: "2.7.2"
     memory_allocator: jemalloc
