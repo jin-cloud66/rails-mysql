@@ -4,11 +4,11 @@ class HealthController < ApplicationController
 
   def health
     @@time_controller_first_hit ||= DateTime.now
-    return render nothing: true, status: :service_unavailable if DateTime.now <= @@time_controller_first_hit + HEALTH_UNAVAILABLE_FOR
-    return render nothing: true
+    head 503, content_type: "text/html" if DateTime.now <= @@time_controller_first_hit + HEALTH_UNAVAILABLE_FOR
+    head :ok, content_type: "text/html"
   end
 
   def healthz
-    return render nothing: true
+    head :ok, content_type: "text/html"
   end
 end
