@@ -1,6 +1,6 @@
 load_balancer:
   configuration:
-    httpchk: HEAD / HTTP/1.1\\r\\nHost:haproxy
+    httpchk: HEAD / HTTP/1.1\r\nHost:haproxy
 rails:
   configuration:
     ruby_version: "2.7.2"
