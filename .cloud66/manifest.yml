@@ -1,15 +1,6 @@
+
 rails:
   configuration:
-    asset_pipeline_precompile: true
     ruby_version: "2.7.2"
-procfile_metadata:
-  web:
-    restart_signal: usr1
-redis:
-  server: external
-mongodb:
-  server: external
-  configuration:
-    tamper_with_yml: false
-elasticsearch:
+mysql:
   server: external
