@@ -9,7 +9,7 @@ common:
         - imagemagick
       operating_system: ubuntu1804
       ruby_version: "2.7.2"
-      vpc_id: vpc-9234a1b9
+      vpc_id: vpc-4a379122
 production:
   mysql:
     servers:
@@ -21,7 +21,7 @@ production:
         - imagemagick
       operating_system: ubuntu1804
       ruby_version: 2.4.10
-      vpc_id: vpc-9234k1t9
+      vpc_id: vpc-4a379122
 staging:
   mysql:
     << : *mysql_default
@@ -32,6 +32,6 @@ staging:
     - server:
         region: eu-central-1
         size: t3.small
-        subnet_id: subnet-4bc3ac92
+        subnet_id: subnet-2d9a9360
         unique_name: stage_web_1
         vendor: aws
