@@ -1,3 +1,37 @@
-rails:
-  configuration:
-    ruby_version: "2.7.2"
+common:
+  mysql: &mysql_default
+    servers:
+    - server: external
+  rails:
+    configuration: &rails_default_config
+      asset_pipeline_precompile: true
+      extra_packages:
+        - imagemagick
+      operating_system: ubuntu1804
+      ruby_version: "2.7.2"
+      vpc_id: vpc-9234a1b9
+production:
+  mysql:
+    servers:
+    - server: external
+  rails:
+    configuration:
+      asset_pipeline_precompile: true
+      extra_packages:
+        - imagemagick
+      operating_system: ubuntu1804
+      ruby_version: 2.4.10
+      vpc_id: vpc-9234k1t9
+staging:
+  mysql:
+    << : *mysql_default
+  rails:
+    configuration:
+      << : *rails_default_config
+    servers:
+    - server:
+        region: eu-central-1
+        size: t3.small
+        subnet_id: subnet-4bc3ac92
+        unique_name: stage_web_1
+        vendor: aws
