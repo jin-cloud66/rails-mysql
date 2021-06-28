@@ -1,3 +1,12 @@
 rails:
   configuration:
     ruby_version: "2.7.2"
+  server:
+    unique_name: registered_server_test
+    address: 159.65.23.1
+mysql:
+  server:
+    same_as: registered_server_test
+redis:
+  server:
+    same_as: registered_server_test
