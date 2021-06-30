@@ -8,10 +8,10 @@ mysql:
         version: 8.0
       servers:
       - server:
-          unique_name: one_server
+          unique_name: one-server
     two:
       configuration:
         version: 8.0
       servers:
       - server:
-          unique_name: two_server
+          unique_name: two-server
