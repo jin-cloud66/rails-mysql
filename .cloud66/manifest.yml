@@ -6,6 +6,12 @@ mysql:
     one:
       configuration:
         version: 8.0
+      servers:
+      - server:
+          unique_name: one_server
     two:
       configuration:
         version: 8.0
+      servers:
+      - server:
+          unique_name: two_server
