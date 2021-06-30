@@ -1,3 +1,11 @@
 rails:
   configuration:
     ruby_version: "2.7.2"
+mysql:
+  groups:
+    one:
+      configuration:
+        version: 8.0
+    two:
+      configuration:
+        version: 8.0
