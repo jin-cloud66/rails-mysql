@@ -5,13 +5,21 @@ mysql:
   groups:
     one:
       configuration:
-        version: 8.0
+        version: "8.0"
       servers:
       - server:
-          unique_name: one-server
+          unique_name: "one-server"
+          size: "s-2vcpu-2gb"
+          region: "lon1"
+          vendor: "digitalocean"
+          key_name: "Default"
     two:
       configuration:
-        version: 8.0
+        version: "8.0"
       servers:
       - server:
-          unique_name: two-server
+          unique_name: "two-server"
+          size: "s-2vcpu-2gb"
+          region: "lon1"
+          vendor: "digitalocean"
+          key_name: "Default"
