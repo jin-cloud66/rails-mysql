@@ -1,0 +1,20 @@
+after_bundle:
+  - command: ls -lar /
+    target: rails
+    run_on: all_servers
+    apply_during: all
+    sudo: true
+  - command: ls -la /
+    target: rails
+    run_on: all_servers
+    apply_during: all
+after_symlink:
+  - command: ls /
+    target: rails
+    run_on: all_servers
+    apply_during: all
+  - command: df -h
+    target: rails
+    run_on: all_servers
+    apply_during: all
+    sudo: true
