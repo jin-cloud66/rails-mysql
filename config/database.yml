@@ -20,21 +20,29 @@ default: &default
 development:
   primary:
     <<: *default
-    database: example_development
+    database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
+    username: <%= ENV['MYSQL_PRIMARY_USERNAME'] %>
+    password: <%= ENV['MYSQL_PRIMARY_PASSWORD'] %>
+    host: <%= ENV['MYSQL_PRIMARY_ADDRESS'] || ENV['MYSQL_PRIMARY_HOST'] %>
   primary_replica:
     <<: *default
-    host: 192.168.1.110
-    database: example_development
-    username: root_readonly
+    database: <%= ENV['MYSQL_PRIMARY_REPLICA_DATABASE'] %>
+    username: <%= ENV['MYSQL_PRIMARY_REPLICA_USERNAME'] %>
+    password: <%= ENV['MYSQL_PRIMARY_REPLICA_PASSWORD'] %>
+    host: <%= ENV['MYSQL_PRIMARY_REPLICA_ADDRESS'] || ENV['MYSQL_PRIMARY_REPLICA_HOST'] %>
     replica: true
   animals:
     <<: *default
-    database: animals
+    database: <%= ENV['MYSQL_ANIMALS_DATABASE'] %>
+    username: <%= ENV['MYSQL_ANIMALS_USERNAME'] %>
+    password: <%= ENV['MYSQL_ANIMALS_PASSWORD'] %>
+    host: <%= ENV['MYSQL_ANIMALS_ADDRESS'] || ENV['MYSQL_ANIMALS_HOST'] %>
   animals_replica:
     <<: *default
-    host: 192.168.1.110
-    database: animals
-    username: root_readonly
+    database: <%= ENV['MYSQL_ANIMALS_REPLICA_DATABASE'] %>
+    username: <%= ENV['MYSQL_ANIMALS_REPLICA_USERNAME'] %>
+    password: <%= ENV['MYSQL_ANIMALS_REPLICA_PASSWORD'] %>
+    host: <%= ENV['MYSQL_ANIMALS_REPLICA_ADDRESS'] || ENV['MYSQL_ANIMALS_REPLICA_HOST'] %>
     replica: true
 
 # Warning: The database defined as "test" will be erased and
