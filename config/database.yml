@@ -37,6 +37,7 @@ development:
     username: <%= ENV['MYSQL_ANIMALS_USERNAME'] %>
     password: <%= ENV['MYSQL_ANIMALS_PASSWORD'] %>
     host: <%= ENV['MYSQL_ANIMALS_ADDRESS'] || ENV['MYSQL_ANIMALS_HOST'] %>
+    migrations_paths: db/migrate
   animals_replica:
     <<: *default
     database: <%= ENV['MYSQL_ANIMALS_REPLICA_DATABASE'] %>
