@@ -70,7 +70,6 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
   primary:
     <<: *default
     database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
