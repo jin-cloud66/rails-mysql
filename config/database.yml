@@ -23,6 +23,7 @@ development:
     database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
     username: <%= ENV['MYSQL_PRIMARY_USERNAME'] %>
     password: <%= ENV['MYSQL_PRIMARY_PASSWORD'] %>
+    host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
   primary_replica:
     <<: *default
     database: <%= ENV['MYSQL_PRIMARY_REPLICA_DATABASE'] %>
