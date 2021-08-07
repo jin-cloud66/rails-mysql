@@ -13,7 +13,7 @@ module Example
     
     config.active_record.writing_role = :writes
     config.active_record.reading_role = :readonly
-    config.config.cache_classes = false
+    config.cache_classes = false
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
