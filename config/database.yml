@@ -18,29 +18,29 @@ default: &default
   host: localhost
 
 development:
-  cars:
+  primary:
     <<: *default
-    database: <%= ENV['MYSQL_CARS_DATABASE'] %>
-    username: <%= ENV['MYSQL_CARS_USERNAME'] %>
-    password: <%= ENV['MYSQL_CARS_PASSWORD'] %>
-  cars_replica:
+    database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
+    username: <%= ENV['MYSQL_PRIMARY_USERNAME'] %>
+    password: <%= ENV['MYSQL_PRIMARY_PASSWORD'] %>
+  primary_replica:
     <<: *default
-    database: <%= ENV['MYSQL_CARS_REPLICA_DATABASE'] %>
-    username: <%= ENV['MYSQL_CARS_REPLICA_USERNAME'] %>
-    password: <%= ENV['MYSQL_CARS_REPLICA_PASSWORD'] %>
+    database: <%= ENV['MYSQL_PRIMARY_REPLICA_DATABASE'] %>
+    username: <%= ENV['MYSQL_PRIMARY_REPLICA_USERNAME'] %>
+    password: <%= ENV['MYSQL_PRIMARY_REPLICA_PASSWORD'] %>
     replica: true
-  animals:
+  articles:
     <<: *default
-    database: <%= ENV['MYSQL_ANIMALS_DATABASE'] %>
-    username: <%= ENV['MYSQL_ANIMALS_USERNAME'] %>
-    password: <%= ENV['MYSQL_ANIMALS_PASSWORD'] %>
-    host: <%= ENV['MYSQL_ANIMALS_ADDRESS'] || ENV['MYSQL_ANIMALS_HOST'] %>
+    database: <%= ENV['MYSQL_ARTICLES_DATABASE'] %>
+    username: <%= ENV['MYSQL_ARTICLES_USERNAME'] %>
+    password: <%= ENV['MYSQL_ARTICLES_PASSWORD'] %>
+    host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
     migrations_paths: db/migrate
-  animals_replica:
+  articles_replica:
     <<: *default
-    database: <%= ENV['MYSQL_ANIMALS_REPLICA_DATABASE'] %>
-    username: <%= ENV['MYSQL_ANIMALS_REPLICA_USERNAME'] %>
-    password: <%= ENV['MYSQL_ANIMALS_REPLICA_PASSWORD'] %>
+    database: <%= ENV['MYSQL_ARTICLES_REPLICA_DATABASE'] %>
+    username: <%= ENV['MYSQL_ARTICLES_REPLICA_USERNAME'] %>
+    password: <%= ENV['MYSQL_ARTICLES_REPLICA_PASSWORD'] %>
     replica: true
 
 # Warning: The database defined as "test" will be erased and
@@ -70,27 +70,28 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  cars:
+  primary:
     <<: *default
-    database: <%= ENV['MYSQL_CARS_DATABASE'] %>
-    username: <%= ENV['MYSQL_CARS_USERNAME'] %>
-    password: <%= ENV['MYSQL_CARS_PASSWORD'] %>
-  cars_replica:
+    database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
+    username: <%= ENV['MYSQL_PRIMARY_USERNAME'] %>
+    password: <%= ENV['MYSQL_PRIMARY_PASSWORD'] %>
+    host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
+  primary_replica:
     <<: *default
-    database: <%= ENV['MYSQL_CARS_REPLICA_DATABASE'] %>
-    username: <%= ENV['MYSQL_CARS_REPLICA_USERNAME'] %>
-    password: <%= ENV['MYSQL_CARS_REPLICA_PASSWORD'] %>
+    database: <%= ENV['MYSQL_PRIMARY_REPLICA_DATABASE'] %>
+    username: <%= ENV['MYSQL_PRIMARY_REPLICA_USERNAME'] %>
+    password: <%= ENV['MYSQL_PRIMARY_REPLICA_PASSWORD'] %>
     replica: true
-  animals:
+  articles:
     <<: *default
-    database: <%= ENV['MYSQL_ANIMALS_DATABASE'] %>
-    username: <%= ENV['MYSQL_ANIMALS_USERNAME'] %>
-    password: <%= ENV['MYSQL_ANIMALS_PASSWORD'] %>
-    host: <%= ENV['MYSQL_ANIMALS_ADDRESS'] || ENV['MYSQL_ANIMALS_HOST'] %>
+    database: <%= ENV['MYSQL_ARTICLES_DATABASE'] %>
+    username: <%= ENV['MYSQL_ARTICLES_USERNAME'] %>
+    password: <%= ENV['MYSQL_ARTICLES_PASSWORD'] %>
+    host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
     migrations_paths: db/migrate
-  animals_replica:
+  articles_replica:
     <<: *default
-    database: <%= ENV['MYSQL_ANIMALS_REPLICA_DATABASE'] %>
-    username: <%= ENV['MYSQL_ANIMALS_REPLICA_USERNAME'] %>
-    password: <%= ENV['MYSQL_ANIMALS_REPLICA_PASSWORD'] %>
+    database: <%= ENV['MYSQL_ARTICLES_REPLICA_DATABASE'] %>
+    username: <%= ENV['MYSQL_ARTICLES_REPLICA_USERNAME'] %>
+    password: <%= ENV['MYSQL_ARTICLES_REPLICA_PASSWORD'] %>
     replica: true
