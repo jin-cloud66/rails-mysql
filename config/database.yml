@@ -71,36 +71,25 @@ test:
 #
 production:
   primary:
-    adapter: mysql2
-    encoding: utf8mb4
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    host: localhost
+    <<: *default
     database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
     username: <%= ENV['MYSQL_PRIMARY_USERNAME'] %>
     password: <%= ENV['MYSQL_PRIMARY_PASSWORD'] %>
   primary_replica:
-    adapter: mysql2
-    encoding: utf8mb4
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    host: localhost
+    <<: *default
     database: <%= ENV['MYSQL_PRIMARY_REPLICA_DATABASE'] %>
     username: <%= ENV['MYSQL_PRIMARY_REPLICA_USERNAME'] %>
     password: <%= ENV['MYSQL_PRIMARY_REPLICA_PASSWORD'] %>
     replica: true
   animals:
-    adapter: mysql2
-    encoding: utf8mb4
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    <<: *default
     database: <%= ENV['MYSQL_ANIMALS_DATABASE'] %>
     username: <%= ENV['MYSQL_ANIMALS_USERNAME'] %>
     password: <%= ENV['MYSQL_ANIMALS_PASSWORD'] %>
     host: <%= ENV['MYSQL_ANIMALS_ADDRESS'] || ENV['MYSQL_ANIMALS_HOST'] %>
     migrations_paths: db/migrate
   animals_replica:
-    adapter: mysql2
-    encoding: utf8mb4
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    host: localhost
+    <<: *default
     database: <%= ENV['MYSQL_ANIMALS_REPLICA_DATABASE'] %>
     username: <%= ENV['MYSQL_ANIMALS_REPLICA_USERNAME'] %>
     password: <%= ENV['MYSQL_ANIMALS_REPLICA_PASSWORD'] %>
