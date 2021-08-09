@@ -74,8 +74,8 @@ production:
   primary:
     <<: *default
     database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
-    username: <%= ENV['MYSQL_PRIMARY_USERNAME'] %>
-    password: <%= ENV['MYSQL_PRIMARY_PASSWORD'] %>
+    username: <%= ENV['MYSQL_ARTICLES_USERNAME'] %>
+    password: <%= ENV['MYSQL_ARTICLES_PASSWORD'] %>
     host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
   primary_replica:
     <<: *default
