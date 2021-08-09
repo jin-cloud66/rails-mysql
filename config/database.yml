@@ -90,12 +90,11 @@ production:
     username: <%= ENV['MYSQL_ARTICLES_USERNAME'] %>
     password: <%= ENV['MYSQL_ARTICLES_PASSWORD'] %>
     host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
-    migrations_paths: db/migrate
+    migrations_paths: db/migrate/articles_migrate
   articles_replica:
     <<: *default
     database: <%= ENV['MYSQL_ARTICLES_REPLICA_DATABASE'] %>
     username: <%= ENV['MYSQL_ARTICLES_REPLICA_USERNAME'] %>
     password: <%= ENV['MYSQL_ARTICLES_REPLICA_PASSWORD'] %>
     host: <%= ENV['MYSQL_ARTICLES_REPLICA_ADDRESS'] || ENV['MYSQL_ARTICLES_REPLICA_HOST'] %>
-    migrations_paths: db/migrate
     replica: true
