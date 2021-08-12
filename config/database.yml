@@ -24,12 +24,6 @@ development:
     username: <%= ENV['MYSQL_ARTICLES_USERNAME'] %>
     password: <%= ENV['MYSQL_ARTICLES_PASSWORD'] %>
     host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
-  primary_replica:
-    <<: *default
-    database: <%= ENV['MYSQL_PRIMARY_REPLICA_DATABASE'] %>
-    username: <%= ENV['MYSQL_PRIMARY_REPLICA_USERNAME'] %>
-    password: <%= ENV['MYSQL_PRIMARY_REPLICA_PASSWORD'] %>
-    replica: true
   articles:
     <<: *default
     database: <%= ENV['MYSQL_ARTICLES_DATABASE'] %>
@@ -37,12 +31,6 @@ development:
     password: <%= ENV['MYSQL_ARTICLES_PASSWORD'] %>
     host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
     migrations_paths: db/migrate
-  articles_replica:
-    <<: *default
-    database: <%= ENV['MYSQL_ARTICLES_REPLICA_DATABASE'] %>
-    username: <%= ENV['MYSQL_ARTICLES_REPLICA_USERNAME'] %>
-    password: <%= ENV['MYSQL_ARTICLES_REPLICA_PASSWORD'] %>
-    replica: true
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -77,13 +65,6 @@ production:
     username: <%= ENV['MYSQL_PRIMARY_USERNAME'] %>
     password: <%= ENV['MYSQL_PRIMARY_PASSWORD'] %>
     host: <%= ENV['MYSQL_PRIMARY_ADDRESS'] || ENV['MYSQL_PRIMARY_HOST'] %>
-  primary_replica:
-    <<: *default
-    database: <%= ENV['MYSQL_PRIMARY_REPLICA_DATABASE'] %>
-    username: <%= ENV['MYSQL_PRIMARY_REPLICA_USERNAME'] %>
-    password: <%= ENV['MYSQL_PRIMARY_REPLICA_PASSWORD'] %>
-    host: <%= ENV['MYSQL_PRIMARY_REPLICA_ADDRESS'] || ENV['MYSQL_PRIMARY_REPLICA_HOST'] %>
-    replica: true
   articles:
     <<: *default
     database: <%= ENV['MYSQL_ARTICLES_DATABASE'] %>
@@ -91,10 +72,3 @@ production:
     password: <%= ENV['MYSQL_ARTICLES_PASSWORD'] %>
     host: <%= ENV['MYSQL_ARTICLES_ADDRESS'] || ENV['MYSQL_ARTICLES_HOST'] %>
     migrations_paths: db/migrate/articles_migrate
-  articles_replica:
-    <<: *default
-    database: <%= ENV['MYSQL_ARTICLES_REPLICA_DATABASE'] %>
-    username: <%= ENV['MYSQL_ARTICLES_REPLICA_USERNAME'] %>
-    password: <%= ENV['MYSQL_ARTICLES_REPLICA_PASSWORD'] %>
-    host: <%= ENV['MYSQL_ARTICLES_REPLICA_ADDRESS'] || ENV['MYSQL_ARTICLES_REPLICA_HOST'] %>
-    replica: true
