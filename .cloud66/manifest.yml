@@ -1,3 +1,15 @@
 rails:
   configuration:
     ruby_version: "2.7.4"
+mysql:
+  groups:
+    primary:
+      servers:
+      - server:
+          unique_name: mysql-primary
+          address: 128.199.12.174
+    articles:
+      servers:
+      - server:
+          unique_name: mysql-articles
+          address: 143.198.145.62
