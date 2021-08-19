@@ -4,12 +4,31 @@ rails:
 mysql:
   groups:
     primary:
+      configuration:
+        version: 8.0
+        engine: mysql
       servers:
       - server:
           unique_name: mysql-primary
-          address: 128.199.12.174
+          vendor: digitalocean
+          key_name: Default
+          region: sfo3
+          size: s-2vcpu-2gb
     articles:
+      configuration:
+        version: 8.0
+        engine: mysql
       servers:
       - server:
           unique_name: mysql-articles
-          address: 143.198.145.62
+          vendor: digitalocean
+          key_name: Default
+          region: sfo3
+          size: s-2vcpu-2gb
+environment_variables:
+  MYSQL_PRIMARY_DATABASE: AUTO_GENERATE
+  MYSQL_PRIMARY_USERNAME: AUTO_GENERATE
+  MYSQL_PRIMARY_PASSWORD: AUTO_GENERATE
+  MYSQL_ARTICLES_DATABASE: AUTO_GENERATE
+  MYSQL_ARTICLES_USERNAME: AUTO_GENERATE
+  MYSQL_ARTICLES_PASSWORD: AUTO_GENERATE
