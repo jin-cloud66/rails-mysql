@@ -64,11 +64,11 @@ production:
     database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
     username: <%= ENV['MYSQL_PRIMARY_USERNAME'] %>
     password: <%= ENV['MYSQL_PRIMARY_PASSWORD'] %>
-    host: 128.199.12.174
+    host: 68.183.56.129
   articles:
     <<: *default
     database: <%= ENV['MYSQL_ARTICLES_DATABASE'] %>
     username: <%= ENV['MYSQL_ARTICLES_USERNAME'] %>
     password: <%= ENV['MYSQL_ARTICLES_PASSWORD'] %>
-    host: 143.198.145.62
+    host: 64.225.59.44
     migrations_paths: db/migrate/articles_migrate
