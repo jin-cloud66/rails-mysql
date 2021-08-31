@@ -7,9 +7,9 @@ mysql:
       servers:
       - server:
           unique_name: mysql-primary
-          address: 128.199.12.174
+          address: 68.183.56.129
     articles:
       servers:
       - server:
           unique_name: mysql-articles
-          address: 143.198.145.62
+          address: 64.225.59.44
