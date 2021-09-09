@@ -103,12 +103,6 @@ glusterfs:
           key_name: Default
           region: nyc3
           size: s-2vcpu-2gb
-      - server:
-          unique_name: glusterfs-primary-replica-2
-          vendor: digitalocean
-          key_name: Default
-          region: nyc3
-          size: s-2vcpu-2gb
     articles:
       configuration:
         version: 3.7
@@ -136,12 +130,6 @@ glusterfs:
           size: s-2vcpu-2gb
       - server:
           unique_name: glusterfs-articles-replica-1
-          vendor: digitalocean
-          key_name: Default
-          region: nyc3
-          size: s-2vcpu-2gb
-      - server:
-          unique_name: glusterfs-articles-replica-2
           vendor: digitalocean
           key_name: Default
           region: nyc3
