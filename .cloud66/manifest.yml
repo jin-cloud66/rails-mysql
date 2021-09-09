@@ -12,7 +12,7 @@ mysql:
           unique_name: mysql-primary
           vendor: digitalocean
           key_name: Default
-          region: sfo3
+          region: nyc3
           size: s-2vcpu-2gb
     articles:
       configuration:
@@ -23,7 +23,126 @@ mysql:
           unique_name: mysql-articles
           vendor: digitalocean
           key_name: Default
-          region: sfo3
+          region: nyc3
+          size: s-2vcpu-2gb
+mongodb:
+  groups:
+    primary:
+      configuration:
+        version: 2.4.8
+      servers:
+      - server:
+          unique_name: mongo-primary
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+    articles:
+      configuration:
+        version: 2.4.8
+      servers:
+      - server:
+          unique_name: mongo-articles
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+redis:
+  groups:
+    primary:
+      configuration:
+        version: 5.0.5
+      servers:
+      - server:
+          unique_name: redis-primary
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+    articles:
+      configuration:
+        version: 5.0.5
+      servers:
+      - server:
+          unique_name: redis-articles
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+glusterfs:
+  groups:
+    primary:
+      configuration:
+        version: 3.7
+        replica_count: 2
+        mount_targets: ['app','redis']
+        volumes:
+          -  volume:
+            name: images-data
+            mount: "/mnt/images"
+            access_control:
+              read: ['web', 'api']
+              write: ['web']
+          -  volume:
+            name: videos
+            mount: /mnt-data/videos
+            access_control:
+              read: ['web']
+              write: ['web']
+
+      servers:
+      - server:
+          unique_name: redis-primary
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+    articles:
+      configuration:
+        version: 3.7
+        replica_count: 2
+        mount_targets: ['app','redis']
+        volumes:
+          -  volume:
+            name: images-data
+            mount: "/mnt/images"
+            access_control:
+              read: ['web', 'api']
+              write: ['web']
+          -  volume:
+            name: videos
+            mount: /mnt-data/videos
+            access_control:
+              read: ['web']
+              write: ['web']
+      servers:
+      - server:
+          unique_name: redis-articles
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+elasticsearch:
+  groups:
+    primary:
+      configuration:
+        version: 0.90.7
+      servers:
+      - server:
+          unique_name: redis-primary
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+    articles:
+      configuration:
+        version: 0.90.7
+      servers:
+      - server:
+          unique_name: redis-articles
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
           size: s-2vcpu-2gb
 environment_variables:
   MYSQL_PRIMARY_DATABASE: AUTO_GENERATE
