@@ -92,7 +92,7 @@ glusterfs:
 
       servers:
       - server:
-          unique_name: redis-primary
+          unique_name: glusterfs-primary
           vendor: digitalocean
           key_name: Default
           region: nyc3
@@ -117,7 +117,7 @@ glusterfs:
               write: ['web']
       servers:
       - server:
-          unique_name: redis-articles
+          unique_name: glusterfs-articles
           vendor: digitalocean
           key_name: Default
           region: nyc3
@@ -129,7 +129,7 @@ elasticsearch:
         version: 0.90.7
       servers:
       - server:
-          unique_name: redis-primary
+          unique_name: elasticsearch-primary
           vendor: digitalocean
           key_name: Default
           region: nyc3
@@ -139,7 +139,7 @@ elasticsearch:
         version: 0.90.7
       servers:
       - server:
-          unique_name: redis-articles
+          unique_name: elasticsearch-articles
           vendor: digitalocean
           key_name: Default
           region: nyc3
