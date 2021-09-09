@@ -77,13 +77,13 @@ glusterfs:
         replica_count: 2
         mount_targets: ['app','redis']
         volumes:
-          -  volume:
+          - volume:
             name: images-data
             mount: "/mnt/images"
             access_control:
               read: ['web', 'api']
               write: ['web']
-          -  volume:
+          - volume:
             name: videos
             mount: /mnt-data/videos
             access_control:
@@ -103,13 +103,13 @@ glusterfs:
         replica_count: 2
         mount_targets: ['app','redis']
         volumes:
-          -  volume:
+          - volume:
             name: images-data
             mount: "/mnt/images"
             access_control:
               read: ['web', 'api']
               write: ['web']
-          -  volume:
+          - volume:
             name: videos
             mount: /mnt-data/videos
             access_control:
