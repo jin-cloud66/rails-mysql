@@ -73,9 +73,8 @@ glusterfs:
   groups:
     primary:
       configuration:
-        version: 3.7
         replica_count: 2
-        mount_targets: ['app','redis']
+        mount_targets: ['app','mysql']
         volumes:
           - volume:
             name: images-data
@@ -98,16 +97,15 @@ glusterfs:
           region: nyc3
           size: s-2vcpu-2gb
       - server:
-          unique_name: glusterfs-primary-replica-1
+          unique_name: glusterfs-primary-replica
           vendor: digitalocean
           key_name: Default
           region: nyc3
           size: s-2vcpu-2gb
     articles:
       configuration:
-        version: 3.7
         replica_count: 2
-        mount_targets: ['app','redis']
+        mount_targets: ['app','mysql']
         volumes:
           - volume:
             name: images-data
@@ -129,7 +127,7 @@ glusterfs:
           region: nyc3
           size: s-2vcpu-2gb
       - server:
-          unique_name: glusterfs-articles-replica-1
+          unique_name: glusterfs-articles-replica
           vendor: digitalocean
           key_name: Default
           region: nyc3
@@ -152,6 +150,42 @@ elasticsearch:
       servers:
       - server:
           unique_name: elasticsearch-articles
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+influxdb:
+  groups:
+    primary:
+      servers:
+      - server:
+          unique_name: influxdb-primary
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+    articles:
+      servers:
+      - server:
+          unique_name: influxdb-articles
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+rabbitmq:
+  groups:
+    primary:
+      servers:
+      - server:
+          unique_name: rabbitmq-primary
+          vendor: digitalocean
+          key_name: Default
+          region: nyc3
+          size: s-2vcpu-2gb
+    articles:
+      servers:
+      - server:
+          unique_name: rabbitmq-articles
           vendor: digitalocean
           key_name: Default
           region: nyc3
