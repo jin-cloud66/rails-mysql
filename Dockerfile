@@ -1,5 +1,5 @@
 # Dockerfile.production
-FROM ruby:2.7
+FROM ruby:3
 MAINTAINER hello@cloud66.com
 
 ENV NODE_ENV production
@@ -11,8 +11,10 @@ ENV RAILS_ENV production
 #RUN addgroup --gid $USER_ID $USER_NAME
 #RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $USER_ID $USER_NAME
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && apt-key add /root/yarn-pubkey.gpg
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+  && curl -sL https://deb.nodesource.com/setup_14.x | bash -
+
 RUN apt-get update && apt-get install -y --no-install-recommends nodejs yarn
 
 ENV INSTALL_PATH /app
