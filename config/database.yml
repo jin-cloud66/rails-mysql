@@ -79,7 +79,7 @@ production:
     host: <%= ENV['MYSQL_PRIMARY_ADDRESS'] || ENV['MYSQL_PRIMARY_HOST'] %>
   primary_replica:
     <<: *default
-    database: <%= ENV['MYSQL_PRIMARY_REPLICA_DATABASE'] %>
+    database: <%= ENV['MYSQL_PRIMARY_DATABASE'] %>
     username: <%= ENV['MYSQL_PRIMARY_REPLICA_USERNAME'] %>
     password: <%= ENV['MYSQL_PRIMARY_REPLICA_PASSWORD'] %>
     host: <%= ENV['MYSQL_PRIMARY_REPLICA_ADDRESS'] || ENV['MYSQL_PRIMARY_REPLICA_HOST'] %>
@@ -93,7 +93,7 @@ production:
     migrations_paths: db/migrate/articles_migrate
   articles_replica:
     <<: *default
-    database: <%= ENV['MYSQL_ARTICLES_REPLICA_DATABASE'] %>
+    database: <%= ENV['MYSQL_ARTICLES_DATABASE'] %>
     username: <%= ENV['MYSQL_ARTICLES_REPLICA_USERNAME'] %>
     password: <%= ENV['MYSQL_ARTICLES_REPLICA_PASSWORD'] %>
     host: <%= ENV['MYSQL_ARTICLES_REPLICA_ADDRESS'] || ENV['MYSQL_ARTICLES_REPLICA_HOST'] %>
