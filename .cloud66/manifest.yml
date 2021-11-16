@@ -1,3 +1,34 @@
 rails:
   configuration:
     ruby_version: "2.7.4"
+mysql:
+  groups:
+    primary:
+      configuration:
+        version: 8.0
+        engine: mysql
+      servers:
+      - server:
+          unique_name: mysql-primary
+          vendor: digitalocean
+          key_name: Default
+          region: sfo3
+          size: s-2vcpu-2gb
+    articles:
+      configuration:
+        version: 8.0
+        engine: mysql
+      servers:
+      - server:
+          unique_name: mysql-articles
+          vendor: digitalocean
+          key_name: Default
+          region: sfo3
+          size: s-2vcpu-2gb
+environment_variables:
+  MYSQL_PRIMARY_DATABASE: AUTO_GENERATE
+  MYSQL_PRIMARY_USERNAME: AUTO_GENERATE
+  MYSQL_PRIMARY_PASSWORD: AUTO_GENERATE
+  MYSQL_ARTICLES_DATABASE: AUTO_GENERATE
+  MYSQL_ARTICLES_USERNAME: AUTO_GENERATE
+  MYSQL_ARTICLES_PASSWORD: AUTO_GENERATE
