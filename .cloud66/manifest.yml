@@ -2,17 +2,8 @@ rails:
   configuration:
     ruby_version: "2.7.4"
 mysql:
-  configuration:
-    version: 8.0
-    engine: mysql
-  servers:
-  - server:
-      unique_name: mysql-primary
-      vendor: digitalocean
-      key_name: Default
-      region: sfo3
-      size: s-2vcpu-2gb
-environment_variables:
-  MYSQL_DATABASE: AUTO_GENERATE
-  MYSQL_USERNAME: AUTO_GENERATE
-  MYSQL_PASSWORD: AUTO_GENERATE
+  groups:
+    default:
+      configuration:
+        version: 8.0
+        engine: mysql
