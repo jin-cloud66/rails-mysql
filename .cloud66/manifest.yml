@@ -14,6 +14,17 @@ mysql:
           key_name: Default
           region: sfo3
           size: s-2vcpu-2gb
+    primary_replica:
+      configuration:
+        version: 8.0
+        engine: mysql
+      servers:
+      - server:
+          unique_name: mysql-primary-replica
+          vendor: digitalocean
+          key_name: Default
+          region: sfo3
+          size: s-2vcpu-2gb
     articles:
       configuration:
         version: 8.0
@@ -25,10 +36,27 @@ mysql:
           key_name: Default
           region: sfo3
           size: s-2vcpu-2gb
+    articles_replica:
+      configuration:
+        version: 8.0
+        engine: mysql
+      servers:
+      - server:
+          unique_name: mysql-articles-replica
+          vendor: digitalocean
+          key_name: Default
+          region: sfo3
+          size: s-2vcpu-2gb
 environment_variables:
   MYSQL_PRIMARY_DATABASE: AUTO_GENERATE
   MYSQL_PRIMARY_USERNAME: AUTO_GENERATE
   MYSQL_PRIMARY_PASSWORD: AUTO_GENERATE
+  MYSQL_PRIMARY_REPLICA_DATABASE: AUTO_GENERATE
+  MYSQL_PRIMARY_REPLICA_USERNAME: AUTO_GENERATE
+  MYSQL_PRIMARY_REPLICA_PASSWORD: AUTO_GENERATE
   MYSQL_ARTICLES_DATABASE: AUTO_GENERATE
   MYSQL_ARTICLES_USERNAME: AUTO_GENERATE
   MYSQL_ARTICLES_PASSWORD: AUTO_GENERATE
+  MYSQL_ARTICLES_REPLICA_DATABASE: AUTO_GENERATE
+  MYSQL_ARTICLES_REPLICA_USERNAME: AUTO_GENERATE
+  MYSQL_ARTICLES_REPLICA_PASSWORD: AUTO_GENERATE
