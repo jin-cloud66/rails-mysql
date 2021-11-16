@@ -1,2 +1,0 @@
-class Comment < ArticleRecord
-end
