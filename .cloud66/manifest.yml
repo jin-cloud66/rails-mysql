@@ -3,7 +3,6 @@ rails:
     ruby_version: "2.7.5"
 mysql:
   configuration:
-    version: 5.7
     root_disk_size: 100
     root_disk_type: ssd
     instance_service_account_name: david-brotz-service-account@magnetic-lore-484.iam.gserviceaccount.com
